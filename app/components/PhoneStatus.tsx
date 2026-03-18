@@ -31,6 +31,9 @@ export default function PhoneStatus({ phone, onRegisterClick }: { phone: any; on
                 phoneId: phone.id,
             }).then(() => {
                 setStatus('DISCONNECTED');
+            }).catch((error) => {
+                console.error('Failed to deregister phone:', error);
+            }).finally(() => {
                 setIsLoading(false);
             });
         } else {
